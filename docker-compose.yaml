@@ -8,3 +8,5 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017 # for host's 27017 request are proxied to container's 27017
