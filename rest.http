@@ -1,1 +1,10 @@
 GET http://localhost:3001/rider-coordinates
+
+POST http://localhost:3002/rider-coordinates
+Content-Type: application/json
+
+{
+  "lat": 123,
+  "lng": 245,
+  "rider": "Harshit"
+}

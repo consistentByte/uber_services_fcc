@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { LoggingController } from './logging.controller';
 import { LoggingService } from './logging.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RiderCoordinatesModule } from './rider-coordinates/rider-coordinates.module';
+import { APP_PIPE } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -10,6 +11,12 @@ import { RiderCoordinatesModule } from './rider-coordinates/rider-coordinates.mo
     RiderCoordinatesModule,
   ],
   controllers: [LoggingController],
-  providers: [LoggingService],
+  providers: [
+    LoggingService,
+    {
+      provide: APP_PIPE,
+      useClass: ValidationPipe,
+    },
+  ],
 })
 export class LoggingModule {}
