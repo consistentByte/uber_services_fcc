@@ -3,6 +3,6 @@ import { RiderServiceModule } from './rider-service.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(RiderServiceModule);
-  await app.listen(process.env.port ?? 3002);
+  await app.listen(process.env.port ?? 3001);
 }
 bootstrap();
