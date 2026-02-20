@@ -6,11 +6,18 @@ import {
   RiderCoordinate,
   RiderCoordinateSchema,
 } from './schemas/rider-coordinates.schema';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: RiderCoordinate.name, schema: RiderCoordinateSchema },
+    ]),
+    ClientsModule.register([
+      {
+        name: 'RIDER_SERVICE',
+        transport: Transport.TCP,
+      },
     ]),
   ],
   controllers: [RiderCoordinatesController],
