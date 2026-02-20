@@ -1,0 +1,10 @@
+version: '3.1'
+
+# mongodb, redis, elasticsearch and so on,
+services:
+  mongo:
+    image: mongo
+    restart: always # restart auto, if container crashes
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
