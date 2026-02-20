@@ -7,7 +7,9 @@ import { APP_PIPE } from '@nestjs/core';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/logs_db'),
+    MongooseModule.forRoot(
+      'mongodb://root:root@localhost:27017/logs_db?authSource=admin',
+    ),
     RiderCoordinatesModule,
   ],
   controllers: [LoggingController],
